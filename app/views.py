@@ -13,8 +13,8 @@ def index():
 
 	data = request.form['gcode'].encode('iso-8859-1')
 	# data = "%\r\n" + data + "\r\n%\r\n"
-	data = data.rstrip('\r\n') + '\r\n'
-	data = data.replace('\r\n(TIMESTAMP)\r\n', '\r\n' + datetime.now().strftime("(%Y %m %d %H %M %S)") + '\r\n')
+	data = data.rstrip('\r\n'.encode()) + '\r\n'.encode()
+	data = data.replace('\r\n(TIMESTAMP)\r\n'.encode(), '\r\n'.encode() + datetime.now().strftime("(%Y %m %d %H %M %S)").encode() + '\r\n'.encode())
 	# init_serial() # for testing
 
 	# TODO: G-code lint right about here
