@@ -1,0 +1,12 @@
+[Unit]
+Description=Lotta Serial interface service
+After=network.target
+
+[Service]
+User=lotta
+WorkingDirectory=/opt/lottacnc
+ExecStart=flask run
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
