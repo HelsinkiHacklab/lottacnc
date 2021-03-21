@@ -58,3 +58,9 @@ target/
 
 # OS X crap
 .DS_Store
+
+# asdf settings
+.tool-versions
+
+# virtual environment
+venv/
