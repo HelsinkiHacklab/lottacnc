@@ -1,6 +1,7 @@
 # lottacnc
+<img src="readme_ui.jpg" />
 
-## moxa
+## Moxa
 Moxa server runs Lotta CNC flask application and the moxa configurations are on service-config -folder. 
 - `flask-application`   
 - `service-config`
@@ -17,6 +18,6 @@ tool-length.nc   | `O0001` | piippari -lenght calibration method
 tool-length.nc | `O0003` | 5mm stock -lenght calibration method 
  
 
-# CNC Mill Web UI
 
-<img src="readme_ui.jpg" />
+
+
