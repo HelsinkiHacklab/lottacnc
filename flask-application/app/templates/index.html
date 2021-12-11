@@ -35,21 +35,27 @@ $(document).ready(function() {
             </div>
         </div></div>
         {% endif %}
-        <form role="form" method="POST" name="sender">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h3>G-code</h3>
-                    <p>
-                        <textarea class="form-control" id="gcode" name="gcode" onkeyup="javascript:update_bytes()" onchange="javascript:update_bytes()" onblur="javascript:update_bytes()">{{ gcode }}</textarea>
-                    </p>
-                        <button value="Send" type="submit" data-toggle="tooltip" title="Push me gently!" class="btn btn-success"><span class="glyphicon glyphicon-upload" aria-hidden="true">&nbsp;</span>Send</button>
-                    <div id="bytes" class="pull-right">0 bytes</div>
-                </div>
-                <div class="col-sm-4">
-                    <h3>Example</h3>
-                    <p><textarea class="form-control" id="example" name="example" readonly>{% include 'gcode_example.txt' %}</textarea></p>
-                </div>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <form role="form" method="POST" name="sender">
+                <h3>G-code</h3>
+                <p>
+                    <textarea class="form-control" id="gcode" name="gcode" onkeyup="javascript:update_bytes()" onchange="javascript:update_bytes()" onblur="javascript:update_bytes()">{{ gcode }}</textarea>
+                </p>
+                    <button value="Send" type="submit" data-toggle="tooltip" title="Push me gently!" class="btn btn-success"><span class="glyphicon glyphicon-upload" aria-hidden="true">&nbsp;</span>Send</button>
+                <div id="bytes" class="pull-right">0 bytes</div>
+                </form>
             </div>
-        </form>
+            <div class="col-sm-4">
+                <h3>Example</h3>
+                <p><textarea class="form-control" id="example" name="example" readonly>{% include 'gcode_example.txt' %}</textarea></p>
+                <form action="./reset-serial-out">
+                    <button value="Send" type="submit" data-toggle="tooltip" title="Reset serial out buffer and clear the text area." class="btn btn-warning"><span class="glyphicon glyphicon-upload" aria-hidden="true">&nbsp;</span>Reset Serial</button>
+                </form>
+            </div>
+        </div>
+  
     </div>
+
 {% endblock %}

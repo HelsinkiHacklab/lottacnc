@@ -1,5 +1,6 @@
+from flask.helpers import url_for
 from app import app
-from flask import request, render_template
+from flask import request, render_template, redirect
 
 from app import serialport, init_serial
 import serial
@@ -19,7 +20,7 @@ def index():
 
 	# TODO: G-code lint right about here
 
-	if not serialport.getCD():
+	if not serialport.cd:
 		return render_template('index.html', nav="main", gcode=request.form['gcode'], error="Lotta is not ready. Hit PRGM, I/O, Read.")
 
 	try:
@@ -41,3 +42,9 @@ def init():
 @app.route('/G43')
 def length_compensation():
 	return render_template('length_compensation.html', nav="helpers")
+
+@app.route('/reset-serial-out')
+def reset_serial_line_out():
+	serialport.reset_output_buffer()
+	return redirect(url_for("index"))
+
